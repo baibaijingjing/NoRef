@@ -1,0 +1,155 @@
+》
+二级标题
+4.2 转录组测序数据组装
+》
+正文
+获得高质量的测序数据之后，需要对其进行序列组装。Trinity[Trinity]是一款专门为高通量转录组测序设计的组装软件。转录本测序深度除了受测序数据量等影响，还与该转录本的表达丰度有关。测序深度会直接影响组装的好坏。为了使各样品中表达丰度较低的转录本组装得更完整，对于同物种的测序样品推荐合并组装可以间接增加测序深度，从而使转录结果更完整，同时也有利于后续的数据分析；而对于不同物种的样品，由于基因组间存在差异，推荐采用分别组装或分开分析。
+》
+三级标题
+4.2.1 组装原理
+》
+正文
+Trinity软件首先将测序Reads打断为较短的片段（K-mer），然后将这些小片段延伸成较长的片段（Contig），并利用这些片段之间的重叠，得到片段集合（Component），最后利用De Bruijn图的方法和测序Read信息，在各个片段集合中分别识别转录本序列。
+Trinity软件具体组装过程：
+(1) 将测序Reads按照指定K-mer打断来构建K-mer库，去除可能包含错误的K-mer；
+(2) 选择频率最高的K-mer作为种子向两端进行贪婪延伸（以K-1个碱基的Overlap为标准，低复杂度或只出现一次的K-mer不能作为种子），不断循环此过程直至耗光K-mer库；
+(3) 对(2)中得到的Contig进行聚簇，得到Component（Contig之间包含K-1个碱基的Overlap，并且有一定数目K-mer分别有一半比对在两条Contig上，这样的Contig会聚为一个Component）；
+(4) 对每个Component中的Contig构建De Bruijn图；
+(5) 对(4)中得到的De Bruijn图进行简化（合并节点，修剪边沿）；
+(6) 以真实的Read来解开De Bruijn图，获得转录本序列。
+Trinity组装原理图如下：
+》50
+图片
+图7 Trinity组装程序原理图
+》
+三级标题
+4.2.2 组装结果统计
+》
+正文
+组装共得到$All_Unigenes条Unigene，Unigene的N50为$com_Uni_N50，组装完整性较高，具体的统计信息见图和表：
+》
+文件
+组装结果序列
+》
+图片
+图8 Unigene长度分布图
+注：横坐标表示Unigene的不同长度区间；纵坐标表示某一长度区间内的Unigene数量。
+》55
+表格
+表3 组装结果统计表
+注：Length Range：表示Unigene的不同长度区间；表格中的数字表示相应区间内Unigene的数量，括号内的百分比表示相应长度区间内Unigene所占的比例；Total Number：表示组装得到的Unigene的总数；Total Length：表示组装得到的Unigene的总长度；N50 Length：表示Unigene的N50的长度；Mean Length：表示Unigene的平均长度。
+》
+三级标题
+4.2.3 测序数据与组装结果的比对统计
+》
+正文
+将各样品的Clean Data与组装得到的Transcript或Unigene库进行序列比对，比对结果统计见表4。比对到Transcript或Unigene的Reads称为Mapped Reads，Mapped Reads将用于后续的分析。
+》
+表格
+表4 测序数据与组装结果的比对统计表
+注：BMK-ID：百迈客样品分析编号；Clean Reads：Clean Reads数目，以双端计；Mapped Reads：Mapped Reads数目，以双端计；Mapped Ratio：Mapped Reads在Clean Reads中所占的比例。
+》
+二级标题
+4.3 转录组测序文库质量评估
+》
+正文
+合格的转录组测序文库是转录组数据分析结果可靠的必要条件，为确保测序文库的质量，从以下3个不同角度对转录组测序文库进行质量评估：
+(1) 通过检验插入片段在Unigene上的分布，评估mRNA片段化的随机性、mRNA的降解情况；
+(2) 通过绘制插入片段的长度分布图，评估插入片段长度的离散程度；
+(3) 通过绘制饱和度图，评估文库容量和比对到Unigene库的Reads（Mapped Reads）是否充足。
+》
+三级标题
+4.3.1 mRNA片段化随机性检验
+》60
+正文
+mRNA片段化后的插入片段大小选择，可以理解为从mRNA序列中独立随机地抽取子序列，如果样本量（mRNA数目）越大、打断方式和时间控制得越合适，那么目的RNA每个部分被抽取到的可能性就越接近，即mRNA片段化随机性越高，mRNA上覆盖的Reads越均匀。
+通过Mapped Reads在各Unigene上的位置分布，模拟mRNA片段化结果，检验mRNA片段化的随机程度。各样品Mapped Reads在mRNA转录本上的位置分布图如下：
+》
+图片集合
+图9 Mapped Reads在mRNA上的位置分布图
+注：横坐标为mRNA位置，纵坐标为对应位置区间内Reads在Mapped Reads中所占百分比。由于参考的mRNA长度不同，作图时将每个mRNA按照长度划分成100个区间，进而统计每一区间内的Mapped Reads数目及所占的比例，图中反映的是所有mRNA各个区间内的Mapped Reads比例的汇总。
+各样品的曲线较平滑，说明mRNA片段化随机性较高；曲线中间部分斜率很小，说明各样品不存在严重降解现象。
+》
+三级标题
+4.3.2 插入片段长度检验
+》65
+正文
+插入片段长度的离散程度能直接反映出文库制备过程中切胶或磁珠纯化的效果。测序样品的插入片段长度模拟分布图如下：
+》
+图片集合
+图10 插入片段长度模拟分布图
+注：横坐标为双端Reads在Unigene库中比对起止点之间的距离，范围为0到800bp；纵坐标为比对起止点之间不同距离的双端Reads或插入片段数量。
+图中曲线如果只有一个主峰，且峰型较窄，这说明插入片段长度的离散程度较小，插入片段大小选择正常。
+》
+三级标题
+4.3.3 转录组测序数据饱和度检验
+》70
+正文
+充足的有效数据是信息分析准确的必要条件。转录组测序检测到的基因数目与测序数据量成正相关性，即测序数据量越大，检测到的基因数目越多。但一个物种的基因数目是有限的，而且基因转录具有时间特异性和空间特异性，所以随着测序量的增加，检测到的基因数目会趋于饱和。
+为了评估数据是否充足，需要查看随着测序数据量的增加，新检测到的基因是否越来越少或没有，即检测到的基因数目是否趋于饱和。
+使用各样品的Mapped Reads对检测到的基因数目的饱和情况进行模拟，绘制曲线图如下：
+》
+图片集合
+图11 转录组测序数据饱和度模拟图
+注：通过将Mapped Reads等量地分成100份，逐渐增加数据查看检测到的基因数量来绘制饱和度曲线。横坐标为Reads数目（以10^6为单位），纵坐标为检测到的基因数量（以10^3为单位）。
+》
+正文
+如果上图中各曲线越往右延伸，斜率越小，逐渐趋于平坦，说明各样品随着测序数据量的增加，新检测到的基因越来越少，趋于饱和，有效测序数据量充足。
+》
+二级标题
+4.4 Unigene功能注释
+》75
+正文
+使用BLAST[BLAST]软件将Unigene序列与NR[NR]、Swiss-Prot[Swiss-Prot]、GO[GO]、COG[COG]、KOG[KOG]、eggNOG4.5[eggNOG4.5]、KEGG[KEGG]数据库比对，使用KOBAS2.0[KOBAS2.0]得到Unigene在KEGG中的KEGG Orthology结果，预测完Unigene的氨基酸序列之后使用HMMER[HMMER]软件与Pfam[Pfam]数据库比对，获得Unigene的注释信息。
+NR数据库是NCBI中的非冗余蛋白质数据库，包含了Swiss-Prot、PIR（Protein Information Resource）、PRF（Protein Research Foundation）、PDB（Protein Data Bank）蛋白质数据库及从GenBank和RefSeq的CDS数据翻译过来的蛋白质数据信息。
+Swiss-Prot数据库是由EBI（欧洲生物信息学研究所）负责维护的数据库，包含了有相关参考文献且经过校对的蛋白质注释信息数据库，可信度很高。
+COG（Clusters of Orthologous Groups）数据库是对基因产物进行同源分类的数据库，是一个较早的识别直系同源基因的数据库，通过对多种生物的蛋白质序列大量比较而来的。
+KOG（euKaryotic Orthologous Groups）数据库针对真核生物，基于基因直系同源关系，结合进化关系将来自不同物种的同源基因分为不同的Orthologous簇，目前KOG有4852个分类。来自同一Orthologous的基因具有相同的功能，这样就可以将功能注释直接继承给同一KOG簇的其他成员。
+eggNOG（v4.5）数据库包含了直系同源蛋白的功能描述和功能分类，结合了COG、KOG以及更多的蛋白质，它涉及的蛋白序列远超过了COG和KOG数据库，而且它还添加了5228个病毒性蛋白。
+Pfam（Protein family）数据库通过蛋白序列的比对建立了每个家族的氨基酸序列的HMM统计模型，是最全面的蛋白结构域注释的分类系统。蛋白质由一个或多个功能区域构成，这些功能区域叫做结构域（Domain），它们具有一定序列保守性。不同的结构域赋予蛋白质不同的功能，通过识别蛋白质的结构域序列，可以预测蛋白质的功能。
+GO（Gene Ontology）数据库是一个国际标准化的基因功能分类体系，提供了一套动态更新的标准词汇表来全面描述生物体中基因和基因产物的功能属性。该数据库总共有三大类，分别是分子功能（Molecular Function）、细胞组分（Cellular Component）和生物学过程（Biological Process），各自描述了基因产物可能行使的分子功能，以及所处的细胞环境和参与的生物学过程。GO数据库中最基本的概念是节点或条目（Term），每个节点都有一个名称，比如“Cell”、“Fibroblast Growth Factor Receptor Binding”或者“Signal Transduction”，同时有一个唯一的编号，形如“GO:nnnnnnn”。
+KEGG（Kyoto Encyclopedia of Genes and Genomes）数据库是系统分析基因产物在细胞中的代谢途径以及这些基因产物功能的数据库。它整合了基因组、化学分子和生化系统等方面的数据，包括代谢通路（PATHWAY）、药物（DRUG）、疾病（DISEASE）、基因序列（GENES）及基因组（GENOME）等。利用该数据库有助于把基因及表达信息作为一个整体的网络进行研究。
+本项目通过选择BLAST参数E-value不大于1e-5和HMMER参数E-value不大于1e-10，最终获得$All_Anno个有注释信息的Unigene。
+基因注释的统计结果见下表：
+》
+表格
+表5 Unigene注释统计表
+注：Annotated databases：表示各功能数据库；Annotated_Number：表示注释到该数据库的Unigene数；300≤length&lt;1000：表示注释到该数据库的Unigene长度大于等于300且小于1000碱基的Unigene数；length≥1000：表示注释到该数据库的长度大于1000个碱基的Unigene数。
+》
+二级标题
+4.5 基因结构分析
+》
+三级标题
+4.5.1 编码区序列预测
+》80
+正文
+TransDecoder软件基于开放阅读框（Open Reading Frame，ORF）长度、对数似然函数值（Log-likelihood Score）、氨基酸序列与Pfam数据库蛋白质结构域序列的比对等信息，能够从转录本序列中识别可靠的潜在编码区序列（Coding Sequence，CDS），是Trinity和Cuffinks等软件官方推荐的CDS预测软件。
+使用TransDecoder软件进行Unigene的编码区序列及其对应氨基酸序列的预测。预测的CDS文件结果示意如下图：
+》
+图片
+图12 CDS分析结果文件示意图
+注：文件为标准的FASTA格式，每个序列单元以“>”开始到下一个“>”之前结束。“>”后面紧接编码区序列编号（由Unigene编号和开放阅读框序号构成），之后是序列描述信息，包括序列类型（type）、序列长度（len）、序列在Unigene上的位置（loc）。预测的编码区序列类型有完整（complete，即同时预测到起始密码子和终止密码子）、5’端部分（5prime_partial，即仅预测到起始密码子）、3’端部分（3prime_partial，即仅预测到终止密码子）和内部区段（internal，即起始密码子和终止密码子都没有预测到）。从第二行开始直到出现“>”之前为止为编码区序列。
+》
+三级标题
+4.5.2 简单重复序列分析
+》
+正文
+MISA（MIcroSAtellite identification tool）是一款鉴定简单重复序列（Simple Sequence Repeat，SSR）的软件，其参考网址见附表。它可以通过对Unigene序列的分析，鉴定出6种类型的SSR：单碱基（Mono-nucleotide）重复SSR、双碱基（Di-nucleotide）重复SSR、三碱基（Tri-nucleotide）重复SSR、四碱基（Tetra-nucleotide）重复SSR、五碱基（Penta-nucleotide）重复SSR和六碱基（Hexa-nucleotide）重复SSR。
+利用MISA软件对筛选得到的1kb以上的Unigene做SSR分析，结果见下表：
+》85
+表格
+表6 SSR分析结果统计表
+注：type: SSR类型(p1:单碱基重复SSR, p2:双碱基重复SSR, p3:三碱基重复SSR, p4:四碱基重复SSR, p5:五碱基重复SSR, p6:六碱基重复SSR, c: 复合型重复SSR). number: 识别到该类型SSR基因的个数。
+》
+文件
+SSR结果和引物设计
+注：每一行为一个SSR标记及其引物设计结果，每个SSR标记最多设计三对引物;Gene_ID：Unigene编号；SSR_nr：同一Unigene上的SSR序号；SSR_type：SSR类型，包括完美单碱基重复（p1）、完美双碱基重复（p2）、完美三碱基重复（p3）、完美四碱基重复（p4）、完美五碱基重复（p5）、完美六碱基重复（p6）和混合SSR（c，即包含至少两个完美SSR，且之间距离小于100bp）；SSR：SSR序列，括号内为重复单元，括号外数字表示重复次数；Size：SSR的长度；SSR_Start：SSR在Unigene上的开始位置；SSR_End：SSR在Unigene上的结束位置;FPr1(5'-3')：第一条正向引物序列；Tm：第一条正向引物序列的退火温度，单位为°C；Size：第一条正向引物序列的长度；RPr1(5'-3')：第一条反向引物序列；Tm：第一条反向引物序列的退火温度，单位为°C；Size：第一条反向引物序列的长度；Psize：产物的长度；PStart：产物在基因上的开始位置；PEnd：产物在基因上的结束位置。
+》
+正文
+对不同类型的SSR进行密度分布统计，结果见下图：
+》
+图片
+图11 SSR密度分布图
+注：横坐标为SSR类型；纵坐标为每Mb序列中对应类型的SSR数目。
+
+

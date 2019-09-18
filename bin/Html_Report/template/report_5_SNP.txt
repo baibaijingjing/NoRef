@@ -1,0 +1,27 @@
+》
+三级标题
+4.5.4 SNP分析
+》
+正文
+利用针对RNA-Seq的比对软件STAR[STAR]对每个样本的Reads与Unigene序列进行比对，并通过GATK[GATK]针对RNA-Seq的SNP识别（SNP Calling）流程，识别单核苷酸多态性（Single Nucleotide Polymorphism，SNP）位点。进而可以分析这些SNP位点是否影响了基因的表达水平或者蛋白产物的种类。识别标准如下：
+(1) 35bp范围内连续出现的单碱基错配不超过3个；
+(2) 经过序列深度标准化的SNP质量值大于2.0。
+按照以上条件筛选，最终获得各样本SNP位点信息。样品SNP位点信息如下：
+》
+文件
+SNP分析结果文件
+GeneID：Unigene编号；Pos：SNP位点在Unigene上的位置；Ref：Unigene上的SNP等位；Alt：测序样品中识别到的其他的SNP等位；SampleName：样品在该SNP位点的分型；Depth：样品在该SNP位点的测序深度；AlleDepth：样品在该SNP位点的各等位测序深度。
+》
+正文
+根据SNP位点的等位（Allele）数目，即测序Reads支持的不同碱基的数目，可以将SNP位点分为纯合型SNP位点（只有一个等位）和杂合型SNP位点（两个或多个等位）。不同物种杂合型SNP所占的比例存在差异。各样品SNP位点数目统计见下表。
+》
+表格
+表10 SNP数量统计表
+注：Samples：样品编号；HomoSNP：纯合型SNP数目；HeteSNP：杂合型SNP数目；AllSNP：纯合型和杂合型SNP总数目。
+》
+正文
+对SNP在Unigene上的分布密度进行统计，作图如下：
+》
+图片
+图14 SNP密度分布图
+注：横坐标为SNP密度，即每Kb基因序列上的SNP数目；纵坐标为拥有对应密度的基因数目。

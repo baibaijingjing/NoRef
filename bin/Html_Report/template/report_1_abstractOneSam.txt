@@ -1,0 +1,7 @@
+》
+项目结果概述
+(1) 完成$sample_num个样品的转录组测序，共获得$base_num Clean Data，Clean Data均达到$min_data，Q30碱基百分比在$min_Q30及以上。
+(2) 组装后共获得$All_Unigenes条Unigene。其中长度在1kb以上的Unigene有$1k_Unigenes条。
+(3) 对Unigene进行功能注释，包括与NR、Swiss-Prot、KEGG、COG、KOG、GO和Pfam数据库的比对，共获得$All_Anno条Unigene的注释结果。
+(4) 进行基于Unigene库的基因结构分析，其中SSR分析共获得$SSR_num个SSR标记,同时还进行了CDS预测。
+(5) 进行基因在该样品中的表达量分析。

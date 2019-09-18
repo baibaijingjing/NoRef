@@ -1,0 +1,31 @@
+Trinity Grabherr MG, Haas BJ, Yassour M,, et al. Full length transcriptome assembly from RNA Seq data without a reference genome. [Nature Biotechnology Italic]. 2011.(29): 644-652 
+BLAST Altschul SF, Madden TL, Sch?ffer AA, et al. Gapped BLAST and PSI BLAST: A New Generation of Protein Database Search Programs. [Nucleic Acids Research Italic]. 1997. 25(17): 3389-3402.
+NR Deng YY, Li JQ, Wu SF, et al. Integrated nr Database in Protein Annotation System and Its Localization. [Computer Engineering Italic]. 2006. 32(5):71-74
+Swiss-Prot Apweiler R, Bairoch A, Wu CH, et al. UniProt: the Universal Protein knowledgebase. [Nucleic Acids Research Italic]. 2004. 32(Database issue):D115 -9.
+GO Ashburner M, Ball C A, Blake J A, et al. Gene ontology: tool for the unification of biology. [Nature genetics Italic]. 2000. 25(1): 25-29.
+COG Tatusov R L, Galperin M Y, Natale D A. The COG database: a tool for genome scale analysis of protein functions and evolution. [Nucleic Acids Research Italic]. 2000. 28(1):33-36. 
+KOG Koonin EV, Fedorova ND, Jackson JD, et al. A comprehensive evolutionary classification of proteins encoded in complete eukaryotic genomes. [Genome Biology Italic], 2004, 5(2): R7.
+eggNOG4.5 Huerta-Cepas J, Szklarczyk D, Forslund K, et al. eggNOG 4.5: a hierarchical orthology framework with improved functional annotations for eukaryotic, prokaryotic and viral sequences[J]. Nucleic acids research, 2015: gkv1248.
+KEGG Kanehisa M, Goto S, Kawashima S, et al. The KEGG resource for deciphering the genome. [Nucleic Acids Research Italic]. 2004. 32(Database issue):D277-D280.
+KOBAS2.0 Xie, C., Mao, X., Huang, J., Ding, Y., Wu, J., Dong, S., Kong, L., Gao, G., Li, C. and Wei, L. (2011) KOBAS 2.0: a web server for annotation and identification of enriched pathways and diseases. Nucleic Acids Res, 39, W316-322.
+HMMER Eddy S.R. Profile hidden Markov models (1998) [Bioinformatics Italic], 14 (9), pp. 755-763.
+Pfam Finn RD, Bateman A, Clements J, et al. Pfam: the protein families database. [Nucleic Acids Research Italic], 2013: gkt1223.
+STAR Dobin A, Davis C A, Schlesinger F, et al. STAR: ultrafast universal RNA-seq aligner[J]. [Bioinformatics Italic], 2013, 29(1): 15-21.
+GATK McKenna A, Hanna M, Banks E, et al. The Genome Analysis Toolkit: a MapReduce framework for analyzing next-generation DNA sequencing data[J]. [Genome Research Italic]. 2010, 20(9): 1297-1303.
+Bowtie Langmead B, Trapnell C, Pop M, et al. Ultrafast and memory-efficient alignment of short DNA sequences to the human genome. [Genome Biology Italic]. 2009. 10(3): R25
+RSEM Li B, Colin ND. RSEM: accurate transcript quantification from RNA Seq data with or without a reference genome. [BMC Bioinformatics Italic]. 2011. (12):323
+FPKM Trapnell C, Williams B A, Pertea G, Mortazavi A, et al. Transcript assembly and quantification by RNA Seq reveals unannotated transcripts and isoform switching during cell differentiation. [Nature Biotechnology Italic] 2010, 28(5):511 515.
+range Djebali, Sarah and Mortazavi, et al. Landscape of transcription in human cells. [Nature Italic] 2012, 489 (7414). pp. 101-108. ISSN 0028-0836.
+Biological_Variability_1 Elowitz MB, Levine AJ, Siggia ED, Swain PS. Stochastic gene expression in a single cell. [Science Italic] 2002; 297:1183-1186.
+Biological_Variability_2 Kasper D. Hansen, Zhijin Wu, et al. Sequencing technology does not eliminate biological variability. [Nature Biotechnology Italic] 2011, pp. 572-573.
+replicate Robasky K, Lewis NE, Church, GM. The role of replicates for error mitigation in next-generation sequencing. [Nature Reviews Genetics Italic] 2013. 1-7. 
+correlation Schulze S K, Kanwar R, Gölzenleuchter M, et al. SERE: Single-parameter quality control and sample comparison for RNA-Seq. [BMC genomics Italic], 2012, 13(1): 524.
+DESeq Anders S, Huber W. Differential expression analysis for sequence count data. [Genome Biology Italic]. 2010. 11:R106.
+DESeq2 Anders S, Huber W. Differential expression analysis for sequence count data. [Genome Biology Italic]. 2010. 11:R106.
+edgeR Robinson MD, McCarthy DJ, Smyth GK. edgeR: a Bioconductor package for differential expression analysis of digital gene expression data. [Bioinformatics]. 2010, 26(1): 139-140.
+EBSeq Leng N, Dawson JA, Thomson JA, et al. EBSeq: An empirical Bayes hierarchical model for inference in RNA-seq experiments. [Bioinformatics Italic]. 2013. 29(8):1035-43.
+topGO Adrian Alexa and Jorg Rahnenfuhrer (2010). topGO: Enrichment analysis for Gene Ontology. R package version 2.18.0.
+STRING Franceschini A, Szklarczyk D, Frankild S, et al. STRING v9. 1: protein-protein interaction networks, with increased coverage and integration. Nucleic acids research. 2013, 41: D808-D815.
+Cytoscape Shannon P, Markiel A, Ozier O, et al. (2003). Cytoscape: a software environment for integrated models of biomolecular interaction networks. Genome Res. 13, 2498-2504.
+
+

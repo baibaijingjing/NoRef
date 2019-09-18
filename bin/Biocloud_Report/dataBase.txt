@@ -1,0 +1,138 @@
+<Bacteria>
+#细菌
+nr	/share/nas2/database/ncbi/Nt_Nr_division/nr_BCT
+nt	/share/nas2/database/ncbi/Nt_Nr_division/nt_BCT
+Kegg	/share/nas2/database/kegg/kegg_divide/Bacteria.fa
+Cog	/share/nas2/database/cog/myva
+Kog	/share/nas2/database/kog/kyva
+Pfam	/share/nas2/database/pfam/27.0/Pfam-A.hmm
+Swissprot	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_sprot_bacteria.fasta
+TrEMBL	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_trembl_bacteria.fasta
+</Bacteria>
+<Archaea>
+#古生菌
+nr	/share/nas2/database/ncbi/nr
+nt	/share/nas2/database/ncbi/nt
+Kegg	/share/nas2/database/kegg/kegg_divide/Archaea.fa
+Cog	/share/nas2/database/cog/myva
+Kog	/share/nas2/database/kog/kyva
+Pfam	/share/nas2/database/pfam/27.0/Pfam-A.hmm
+Swissprot	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_sprot_archaea.fasta
+TrEMBL	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_trembl_archaea.fasta
+</Archaea>
+<Plants>
+#植物
+nr	/share/nas2/database/ncbi/Nt_Nr_division/nr_PLN
+nt	/share/nas2/database/ncbi/Nt_Nr_division/nt_PLN
+Kegg	/share/nas2/database/kegg/kegg_divide/Plants.fa
+Cog	/share/nas2/database/cog/myva
+Kog	/share/nas2/database/kog/kyva
+Pfam	/share/nas2/database/pfam/27.0/Pfam-A.hmm
+Swissprot	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_sprot_plants.fasta
+TrEMBL	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_trembl_plants.fasta
+</Plants>
+<Invertebrates>
+#无脊椎
+nr	/share/nas2/database/ncbi/Nt_Nr_division/nr_INV
+nt	/share/nas2/database/ncbi/Nt_Nr_division/nt_INV
+Kegg	/share/nas2/database/kegg/kegg_divide/Animals.fa
+Cog	/share/nas2/database/cog/myva
+Kog	/share/nas2/database/kog/kyva
+Pfam	/share/nas2/database/pfam/27.0/Pfam-A.hmm
+Swissprot	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_sprot_invertebrates.fasta 
+TrEMBL	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_trembl_invertebrates.fasta
+</Invertebrates>
+<Vertebrates>
+#有脊椎
+nr	/share/nas2/database/ncbi/Nt_Nr_division/nr_VRT
+nt	/share/nas2/database/ncbi/Nt_Nr_division/nt_VRT
+Kegg	/share/nas2/database/kegg/kegg_divide/Animals.fa
+Cog	/share/nas2/database/cog/myva
+Kog	/share/nas2/database/kog/kyva
+Pfam	/share/nas2/database/pfam/27.0/Pfam-A.hmm
+Swissprot	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_sprot_vertebrates.fasta
+TrEMBL	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_trembl_vertebrates.fasta
+</Vertebrates>
+<Primates>
+#灵长类
+nr	/share/nas2/database/ncbi/Nt_Nr_division/nr_PRI
+nt	/share/nas2/database/ncbi/Nt_Nr_division/nt_PRI
+Kegg	/share/nas2/database/kegg/kegg_divide/Animals.fa
+Cog	/share/nas2/database/cog/myva
+Kog	/share/nas2/database/kog/kyva
+Pfam	/share/nas2/database/pfam/27.0/Pfam-A.hmm
+Swissprot	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_sprot_mammals.fasta
+TrEMBL	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_trembl_mammals.fasta
+</Primates>
+<Human>
+#人类
+nr	/share/nas2/database/ncbi/Nt_Nr_division/nr_PRI
+nt	/share/nas2/database/ncbi/Nt_Nr_division/nt_PRI
+Kegg	/share/nas2/database/kegg/kegg_divide/Animals.fa
+Cog	/share/nas2/database/cog/myva
+Kog	/share/nas2/database/kog/kyva
+Pfam	/share/nas2/database/pfam/27.0/Pfam-A.hmm
+Swissprot	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_sprot_human.fasta
+TrEMBL	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_trembl_human.fasta
+</Human>
+<Rodents>
+#啮齿动物
+nr	/share/nas2/database/ncbi/Nt_Nr_division/nr_ROD
+nt	/share/nas2/database/ncbi/Nt_Nr_division/nt_ROD
+Kegg	/share/nas2/database/kegg/kegg_divide/Animals.fa
+Cog	/share/nas2/database/cog/myva
+Kog	/share/nas2/database/kog/kyva
+Pfam	/share/nas2/database/pfam/27.0/Pfam-A.hmm
+Swissprot	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_sprot_rodents.fasta
+TrEMBL	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_trembl_rodents.fasta
+
+</Rodents>
+<Viruses>
+#病毒
+nr	/share/nas2/database/ncbi/Nt_Nr_division/nr_VRL
+nt	/share/nas2/database/ncbi/Nt_Nr_division/nt_VRL
+Kegg	/share/nas2/database/kegg/genes.pep
+Cog	/share/nas2/database/cog/myva
+Kog	/share/nas2/database/kog/kyva
+Pfam	/share/nas2/database/pfam/27.0/Pfam-A.hmm
+Swissprot	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_sprot_viruses.fasta
+TrEMBL	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_trembl_viruses.fasta
+
+</Viruses>
+<Mammals>
+#哺乳动物
+nr	/share/nas2/database/ncbi/Nt_Nr_division/nr_MAM
+nt	/share/nas2/database/ncbi/Nt_Nr_division/nt_MAM
+Kegg	/share/nas2/database/kegg/kegg_divide/Animals.fa
+Cog	/share/nas2/database/cog/myva
+Kog	/share/nas2/database/kog/kyva
+Pfam	/share/nas2/database/pfam/27.0/Pfam-A.hmm
+Swissprot	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_sprot_mammals.fasta
+TrEMBL	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_trembl_mammals.fasta
+
+</Mammals>
+
+<Fungi>
+#真菌
+nr	/share/nas2/database/ncbi/nr
+nt	/share/nas2/database/ncbi/nt
+Kegg	/share/nas2/database/kegg/kegg_divide/Fungi.fa
+Cog	/share/nas2/database/cog/myva
+Kog	/share/nas2/database/kog/kyva
+Pfam	/share/nas2/database/pfam/27.0/Pfam-A.hmm
+Swissprot	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_sprot_fungi.fasta
+TrEMBL	/share/nas2/database/uniprot/knowledgebase/current/TrEMBL_Divide/uniprot_trembl_fungi.fasta
+
+</Fungi>
+<All>
+#全部
+nr	/share/nas2/database/ncbi/nr
+nt	/share/nas2/database/ncbi/nt
+Kegg	/share/nas2/database/kegg/genes.pep
+Cog	/share/nas2/database/cog/myva
+Kog	/share/nas2/database/kog/kyva
+Pfam	/share/nas2/database/pfam/27.0/Pfam-A.hmm
+Swissprot	/share/nas2/database/uniprot/knowledgebase/current/complete/uniprot_sprot.fasta
+TrEMBL	/share/nas2/database/uniprot/knowledgebase/2013_02/complete/uniprot_sprot.fasta
+
+</All>

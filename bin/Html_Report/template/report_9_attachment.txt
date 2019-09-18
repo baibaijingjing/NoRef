@@ -1,0 +1,61 @@
+》
+参考文献
+》
+附录级标题
+附录：
+》
+附录2级标题
+附表：软件列表
+》
+表格
+表 软件列表
+》
+附录2级标题
+附表：数据库列表
+》
+表格
+表 数据库列表
+》
+附录2级标题
+附表：核酸编码表
+》
+表格
+表 核酸编码表
+》
+附录2级标题
+附件：材料方法英文说明
+》
+正文
+1 Sample collection and preparation
+1.1 RNA quantification and qualification 
+RNA degradation and contamination was monitored on 1% agarose gels. RNA purity was checked using the NanoPhotometer® spectrophotometer (IMPLEN, CA, USA).RNA concentration was measured using Qubit® RNA Assay Kit in Qubit®2.0 Flurometer (Life Technologies, CA, USA).RNA integrity was assessed using the RNA Nano 6000 Assay Kit of the Agilent Bioanalyzer 2100 system (Agilent Technologies, CA, USA).
+1.2 Library preparation for Transcriptome sequencing
+A total amount of 3 μg RNA per sample was used as input material for the RNA sample preparations. Sequencing libraries were generated using NEBNext®Ultra™ RNA Library Prep Kit for Illumina®(NEB, USA) following manufacturer’s recommendations and index codes were added to attribute sequences to each sample. Briefly, mRNA was purified from total RNA using poly-T oligo-attached magnetic beads. Fragmentation was carried out using divalent cations under elevated temperature in NEBNext First Strand Synthesis Reaction Buffer（5X）. First strand cDNA was synthesized using random hexamer primer and M-MuLV Reverse Transcriptase（RNase H-）. Second strand cDNA synthesis was subsequently performed using DNA Polymerase I and RNase H . Remaining overhangs were converted into blunt ends via exonuclease/polymerase activities. After adenylation of 3’ ends of DNA fragments, NEBNext Adaptor with hairpin loop structure were ligated to prepare for hybridization. In order to select cDNA fragments of preferentially 150~200 bp in length, the library fragments were purified with AMPure XP system (Beckman Coulter, Beverly, USA). Then 3 μl USER Enzyme (NEB, USA) was used with size-selected, adaptor-ligated cDNA at 37°C for 15 min followed by 5 min at 95°C before PCR. Then PCR was performed with Phusion High-Fidelity DNA polymerase, Universal PCR primers and Index (X) Primer. At last, PCR products were purified (AMPure XP system) and library quality was assessed on the Agilent Bioanalyzer 2100 system.
+1.3 Clustering and sequencing
+The clustering of the index-coded samples was performed on a cBot Cluster Generation System using TruSeq PE Cluster Kit v3-cBot-HS (Illumia) according to the manufacturer’s instructions. After cluster generation, the library preparations were sequenced on an Illumina Hiseq 2000 platform and paired-end reads were generated.
+2 Data analysis
+2.1 Quality control
+Raw data (raw reads) of fastq format were firstly processed through in-house perl scripts. In this step, clean data(clean reads) were obtained by removing reads containing adapter, reads containing ploy-N and low quality reads from raw data. At the same time, Q20, Q30, GC-content and sequence duplication level of the clean data were calculated. All the downstream analyses were based on clean data with high quality.
+2.2 Transcriptome assembly 
+The left files (read1 files) from all libraries/samples were pooled into one big left.fq file, and right files (read2 files) into one big right.fq file. Transcriptome assembly was accomplished based on the left.fq and right.fq using Trinity (Grabherr et al, 2011) with min_kmer_cov set to 2 by default and all other parameters set default.
+2.3 Gene functional annotation
+Gene function was annotated based on the following databases: NR (NCBI non-redundant protein sequences)；Pfam (Protein family)；KOG/COG/eggNOG (Clusters of Orthologous Groups of proteins)；Swiss-Prot (A manually annotated and reviewed protein sequence database)；KEGG (Kyoto Encyclopedia of Genes and Genomes)；GO (Gene Ontology).
+2.4 SNP calling
+Picard - tools v1.41 and samtools v0.1.18 were used to sort, remove duplicated reads  and merge the bam alignment results of each sample. GATK2 software was used to perform SNP calling. Raw vcffiles were filtered with GATK standard filter method and other parameters ( clusterWindowSize: 35; MQ0 >= 4 and (MQ0/(1.0*DP)) > 0.1; QUAL &lt; 10; QUAL &lt; 30.0 or QD &lt; 5.0 or HRun > 5), and only SNPs with distance > 5 were retained.
+2.5 SSR detection and primer design
+SSR of the transcriptome were identified using MISA (http://pgrc.ipk-gatersleben.de/misa/misa.html), and primer for each SSR was designed using Primer3 (http://primer3.sourceforge.net/releases.php).
+2.6 Quantification of gene expression levels
+Gene expression levels were estimated by RSEM (Li et al, 2011) for each sample:
+1. Clean data were mapped back onto the assembled transcriptome
+2. Readcount for each gene was obtained from the mapping results
+2.7 Differential expression analysis
+For the samples with biological replicates:
+Differential expression analysis of two conditions/groups was performed using the DESeq R package (1.10.1). DESeq provide statistical routines for determining differential expression in digital gene expression data using a model based on the negative binomial distribution. The resulting P values were adjusted using the Benjamini and Hochberg’s approach for controlling the false discovery rate. Genes with an adjusted P-value &lt;0.05 found by DESeq were assigned as differentially expressed.
+For the samples without biological replicates:
+Prior to differential gene expression analysis, for each sequenced library, the read counts were adjusted by edgeR program package through one scaling normalized factor. Differential expression analysis of two samples was performed using the DEGseq (2010) R package. Pvalue was adjusted using q value (Storey et al, 2003). qvalue&lt;0.005 &amp; |log2 （foldchange） |>1 was set as the threshold for significantly differential expression.
+2.8 GO enrichment analysis
+Gene Ontology (GO) enrichment analysis of the differentially expressed genes (DEGs) was implemented by the topGO R packages based Kolmogorov–Smirnov test.
+2.9 KEGG pathway enrichment analysis
+KEGG (Kanehisa et al., 2008) is a database resource for understanding high-level functions and utilities of the biological system, such as the cell, the organism and the ecosystem, from molecular-level information, especially large-scale molecular datasets generated by genome sequencing and other high-throughput experimental technologies (http://www.genome.jp/kegg/). We used KOBAS (Mao et al., 2005) software to test the statistical enrichment of differential expression genes in KEGG pathways.
+3.0 PPI (Protein Protein Interaction)
+The sequences of the DEGs was blast (blastx) to the genome of a related species (the protein protein interaction of which exists in the STRING database: http://string-db.org/) to get the predicted PPI of these DEGs. Then the PPI of these DEGs were visualized in Cytoscape (Shannon et al, 2003).

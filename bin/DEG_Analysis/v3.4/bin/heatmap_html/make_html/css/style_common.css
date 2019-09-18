@@ -1,0 +1,135 @@
+*{
+    font-family: Arial, "Hiragino Sans GB", "Microsoft YaHei", "Microsoft Yahei", STHeiti, SimSun, sans-serif;
+    font-size: 13px;
+}
+#wrapper>nav{
+    position: fixed;
+    left:0;
+    top:0;
+}
+span.v_new{
+    padding: 2px 4px;
+    text-shadow: none;
+    border-radius: 3px;
+    color: #1cc09f;
+    background-color: #fff;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    font-weight: 600;
+    font-size: 12px;
+    /*margin-top: 1px;*/
+}
+/*span.clear>span>strong{*/
+    /*color: #fff;*/
+/*}*/
+ul>li.nav-header{
+    background-image: url(../img/header-profile.png);
+    background-size: 100% 100%;
+    padding:18px 25px;
+}
+.nav-header>.dropdown>span>img{
+    height:75px;
+    width: 75px;
+    vertical-align: middle;
+}
+.nav-header>div.dropdown{
+    text-align: center;
+}
+.bread-crumb{
+    float: left;
+    margin-top:11px;
+    margin-left:20px;
+}
+#page-wrapper>div:first-child{
+    height: 40px;
+    width:100%;
+    position: fixed;
+    z-index: 999;
+}
+.nav-fixed-top{
+    margin-bottom:0;
+    height: 40px;
+    min-height:40px !important;
+}
+.nav-fixed-top>.navbar-header>a:first-child{
+    padding: 4px 12px;
+    margin: 5px 5px 5px 20px;
+    font-size: 14px;
+    float: left;
+}
+.nav-fixed-top>.nav{
+    position: fixed;
+    top:0;
+    right: 30px;
+}
+.nav-fixed-top>.nav>li>a{
+    padding: 10px;
+    border-width: 1px;
+    border-style: none solid none solid;
+    border-color:#E7EAEC;
+}
+/*.change-pad{*/
+    /*padding: 0 0 0 15px;*/
+/*}*/
+/*!*.main-sect{*!*/
+    /*margin: 40px -20px 0 0;*/
+    /*background: #F3F3F4 none repeat scroll 0% 0%;*/
+    /*width: 100%;*/
+    /*margin-right: 15px;*/
+/*}*/
+
+
+
+
+
+/*详细信息*/
+div.project_sample{
+    width: 400px;
+    background-color:#fff;
+    padding:20px 30px;
+    z-index:3000;
+    margin-top: 0;
+
+}
+div.project_sample>h4{
+    font-size: 14px;!important;
+    margin-left: -3px;
+}
+div.project_sample>div{
+    margin:10px 10px 10px 5px;
+    border-left:2px solid #E5E5E5;
+    padding-left: 10px;
+}
+div.project_sample>div>ul{
+    padding-top: 10px;
+}
+div.project_sample>div>ul>li{
+    position: relative;
+}
+div.project_sample>div>ul>li h4{
+    font-size: 13px;;
+}
+div.project_circle{
+    width: 5px;
+    height: 5px;
+    background-color: #555;
+    border-radius:50%;
+    position: absolute;
+    left:-13px;
+    top: 6px;;
+}
+div.sky_circle{
+    width: 8px;
+    height: 8px;
+    border:1px solid #555;
+    background-color: #fff;
+    border-radius:50%;
+    position: absolute;
+    left: -15px;
+    top: -15px;;
+}
+.p_left{
+    padding-left: 10px;;
+}

@@ -1,0 +1,22 @@
+》
+二级标题
+4.6 基因表达量分析
+》95
+三级标题
+4.6.1 Unigene表达量计算
+》
+正文
+采用Bowtie[Bowtie]将测序得到的Reads与Unigene库进行比对，根据比对结果，结合RSEM[RSEM]进行表达量水平估计。利用FPKM值表示对应Unigene的表达丰度。
+FPKM[FPKM]（Fragments Per Kilobase of transcript per Million mapped reads）是每百万Reads中来自比对到某一基因每千碱基长度的Reads数目，是转录组测序数据分析中常用的基因表达水平估算方法。FPKM能消除基因长度和测序量差异对计算基因表达的影响。FPKM计算公式如下：
+》
+图片
+图11 FPKM计算公式
+》
+正文
+公式中，cDNA Fragments表示比对到某一转录本上的片段数目，即双端Reads数目；Mapped Fragments (Millions)表示比对到转录本上的片段总数，以10^6为单位；Transcript Length(kb)：转录本长度，以10^3个碱基为单位。
+》
+正文
+对每个基因的信息进行统计，样品结果文件如下：
+》100
+文件
+基因表达量结果文件

@@ -1,0 +1,681 @@
+》
+一级标题
+1 无参考基因组转录组测序背景概述
+》
+正文
+转录组（Transcriptome）广义上指在特定环境或生理条件下的一个细胞、组织或生物体中所有RNA的总和，包括信使RNA（mRNA）、核糖体RNA（rRNA）、转运RNA（tRNA）及其它的非编码RNA（non-coding RNA）。蛋白质是生命活动的主要承担者，由mRNA编码，因此狭义上的转录组则指细胞所能转录出的所有mRNA。无特殊说明，下文提到的转录组均取狭义上的概念。
+不考虑突变，一个个体或物种的基因组（Genome）基本上是不变的。然而相比之下，转录组可以随时间或外部环境条件的改变而有所变化。由于转录组包括了细胞里转录出的所有的mRNA，除却异常的mRNA降解现象（如转录衰减），转录组反映了在特定时间点或特定条件下蛋白质编码基因表达情况。
+转录组测序（Transcriptome Sequencing）是对某一物种的mRNA进行的高通量测序。转录组测序能够对样品任意时间点或任意条件下的转录组进行测序，拥有精确到单个核苷酸的分辨率。能够动态反映基因转录水平，同时鉴定和定量稀有转录本和正常转录本，并且提供样品特异的转录本序列结构信息。
+利用Poly(A)结构提取生物样品中的mRNA，片段化、反转录为cDNA之后进行高通量测序，获得cDNA片段两端的序列，cDNA片段两端测定的序列称为双端Reads（Pair-ends Reads）或Reads。
+对于无参考基因组的物种，通过对测序得到的cDNA片段进行组装可以从头获得该物种的转录本（mRNA）序列，为非模式生物的各种转录组及其他研究奠定基础。通过组装得到的转录本构建物种的Unigene库，并基于此进行包括基因结构注释、基因表达量分析和基因功能注释等一系列生物信息学分析，为生物学研究项目提供分子水平依据。
+》
+一级标题
+2 项目概况
+》5
+二级标题
+2.1 合同关键指标
+》
+待编辑正文
+(1) 完成$sample_num个样品的转录组测序，每个样品测序产出不少于XXXGb Clean Data，Q30碱基百分比达到85%。
+(2) 完成转录本的组装，获得Unigene库。
+(3) 完成Unigene的表达量分析和差异表达基因分析。
+(4) 完成CDS预测、SSR分析和SNP分析。
+(5) 完成Unigene功能注释和差异表达基因功能注释分析。
+》
+二级标题
+2.2 项目执行情况
+》
+待编辑正文
+(1) 样品检测合格时间为20XX年XX月XX日。
+(2) 样品信息到位时间为20XX年XX月XX日。
+(3) 项目建库启动时间为20XX年XX月XX日。
+(4) 项目分析完成时间为$finish_date。
+》
+二级标题
+2.3 分析结果概述
+》10
+正文
+(1) 完成$sample_num个样品的转录组测序，共获得$base_num Clean Data，各样品Clean Data均达到$min_data，Q30碱基百分比在$min_Q30及以上。
+(2) [De novo Italic]组装后共获得$All_Unigenes条Unigene。其中长度在1kb以上的Unigene有$1k_Unigenes条。
+(3) 对Unigene进行功能注释，包括与NR、Swiss-Prot、KEGG、COG、KOG、GO和Pfam数据库的比对，共获得$All_Anno条Unigene的注释结果。
+(4) 进行基于Unigene库的基因结构分析，其中SSR分析共获得$SSR_num个SSR标记。同时还进行了CDS预测和SNP分析。
+(5) 进行基因在各样品中的表达量分析。
+(6) 基于基因在不同样品中的表达量，识别差异表达基因。
+(7) 对差异表达基因进行模式聚类、功能注释以及富集性分析。
+》
+一级标题
+3 实验流程
+》
+正文
+转录组测序实验流程包括样品检测、文库构建及其质量控制和上机测序。实验流程见下图：
+》
+图片
+图1 转录组测序实验流程图
+》15
+二级标题
+3.1 RNA样品检测
+》
+正文
+分别采用Nanodrop、Qubit 2.0、Aglient 2100方法检测RNA样品的纯度、浓度和完整性等，以保证使用合格的样品进行转录组测序。
+》
+二级标题
+3.2 RNA文库构建
+》
+正文
+样品检测合格后，进行文库构建，主要流程如下：
+(1) 用带有Oligo（dT）的磁珠富集真核生物mRNA；
+(2) 加入Fragmentation Buffer将mRNA进行随机打断；
+(3) 以mRNA为模板，用六碱基随机引物（random hexamers）合成第一条cDNA链，然后加入缓冲液、dNTPs、RNase H和DNA polymerase I合成第二条cDNA链，利用AMPure XP beads纯化cDNA；
+(4) 纯化的双链cDNA再进行末端修复、加A尾并连接测序接头，然后用AMPure XP beads进行片段大小选择；
+(5) 最后通过PCR富集得到cDNA文库。
+》
+二级标题
+3.3 文库质控
+》20
+正文
+文库构建完成后，分别使用Qubit2.0和Agilent 2100对文库的浓度和插入片段大小（Insert Size）进行检测，使用Q-PCR方法对文库的有效浓度进行准确定量，以保证文库质量。
+》
+二级标题
+3.4 上机测序
+》
+正文
+库检合格后，用HiSeq2500进行高通量测序，测序读长为PE100。
+》
+一级标题
+4 生物信息学分析
+》
+正文
+对Raw Data进行数据过滤，去除其中的接头序列及低质量Reads获得高质量的Clean Data。
+将Clean Data进行序列组装，获得该物种的Unigene库。基于此，可以进行随机性检验、饱和度检验等测序文库质量评估。文库质量评估合格后，进行表达量分析、基因结构分析，并根据基因在不同样品或不同样品组中的表达量进行差异表达分析、差异表达基因功能注释和功能富集等分析。
+无参考基因组的转录组生物信息分析流程见下图：
+》25
+图片
+图2 转录组测序生物信息分析流程图
+》
+二级标题
+4.1 测序数据及其质量控制
+》
+正文
+基于边合成边测序（Sequencing By Synthesis，SBS）技术，使用Illumina HiSeq2500高通量测序平台对cDNA文库进行测序，能够产出大量的高质量Reads，测序平台产出的这些Reads或碱基称为原始数据（Raw Data），其大部分碱基质量打分能达到或超过Q30。
+Raw Data以FASTQ格式存储，每个测序样品的Raw Data包括两个FASTQ文件，分别包含所有cDNA片段两端测定的Reads。
+FASTQ格式文件示意图如下：
+》
+图片
+图3 FASTQ格式文件示意图
+》
+注释
+注：FASTQ文件中通常每4行对应一个序列单元：第一行以@开头，后面接着序列标识（ID）以及其它可选的描述信息；第二行为碱基序列，即Reads；第三行以“+”开头，后面接着可选的描述信息；第四行为Reads每个碱基对应的质量值编码，长度必须和Reads的序列长度相同。
+》30
+三级标题
+4.1.1 测序碱基质量值
+》
+正文
+碱基质量值（Quality Score或Q-score）是碱基识别（Base Calling）出错的概率的整数映射。通常使用的Phred质量评估公式为：
+》
+公式
+公式1 质量值计算公式
+》
+正文
+公式中，P为碱基识别出错的概率。下表给出了碱基质量值与碱基识别出错的概率的对应关系：
+》
+表格
+表1 碱基质量值与碱基识别出错的概率的对应关系表
+》35
+正文
+碱基质量值越高表明碱基识别越可靠，碱基测错的可能性越小。比如，对于碱基质量值为Q20的碱基识别，100个碱基中有1个会识别出错；对于碱基质量值为Q30的碱基识别，1,000个碱基中有1个会识别出错；Q40表示10,000个碱基中才有1个会识别出错。
+以测序循环为单位，对单个样品所有Reads平行测序的碱基质量值做分布图，可以查看单个样品各个测序循环及整体的测序质量。
+》
+图片
+图4 碱基质量值分布图
+》
+注释
+注：横坐标为测序碱基在Reads上的位置，纵坐标为碱基质量值。颜色深浅表示碱基比重，颜色越深，说明该位置测定的碱基中为对应质量值的碱基所占的比重越大，反之亦然。
+》
+正文
+上图中，上方的蓝色条越多且颜色越深说明样品整体的测序质量越好。
+》
+三级标题
+4.1.2 测序质量控制
+》40
+正文
+在进行后续分析之前，首先需要确保所用Reads有足够高的质量，以保证序列组装和后续分析的准确。另外，一般Raw Data中会有极少部分的Reads带有测序引物、接头等人工序列，需要将其从Reads中截除。具体测序数据质量控制如下：
+(1) 截除Reads中的测序接头以及引物序列；
+(2) 过滤低质量值数据，确保数据质量。
+经过上述一系列的质量控制之后得到的高质量Reads，称之为Clean Data。Clean Data以FASTQ格式提供给客户。
+》
+三级标题
+4.1.3 测序数据产出统计
+》
+正文
+该项目各样品Clean Data统计见下表：
+》
+表格
+表2 样品测序数据评估统计表
+》
+注释
+注：Samples：样品信息单样品名称；BMK-ID：百迈客对样品的统一编号；Read Number：Clean Data中pair-end Reads总数；Base Number：Clean Data总碱基数；GC Content：Clean Data GC含量，即Clean Data中G和C两种碱基占总碱基的百分比；%≥Q30：Clean Data质量值大于或等于30的碱基所占的百分比。
+》45
+正文
+经过测序质量控制，共得到$base_num Clean Data，各样品Q30碱基百分比均不小于$min_Q30。
+》
+二级标题
+4.2 转录组测序数据组装
+》
+正文
+获得高质量的测序数据之后，需要对其进行序列组装。Trinity[[1] Superscript]是一款专门为高通量转录组测序设计的组装软件。转录本测序深度除了受测序数据量等影响，还与该转录本的表达丰度有关。测序深度会直接影响组装的好坏。为了使各样品中表达丰度较低的转录本组装得更完整，对于同物种的测序样品推荐合并组装可以间接增加测序深度，从而使转录结果更完整，同时也有利于后续的数据分析；而对于不同物种的样品，由于基因组间存在差异，推荐采用分别组装或分开分析。
+》
+三级标题
+4.2.1 组装原理
+》
+正文
+Trinity软件首先将测序Reads打断为较短的片段（K-mer），然后将这些小片段延伸成较长的片段（Contig），并利用这些片段之间的重叠，得到片段集合（Component），最后利用De Bruijn图的方法和测序Read信息，在各个片段集合中分别识别转录本序列。
+Trinity软件具体组装过程：
+(1) 将测序Reads按照指定K-mer打断来构建K-mer库，去除可能包含错误的K-mer；
+(2) 选择频率最高的K-mer作为种子向两端进行贪婪延伸（以K-1个碱基的Overlap为标准，低复杂度或只出现一次的K-mer不能作为种子），不断循环此过程直至耗光K-mer库；
+(3) 对(2)中得到的Contig进行聚簇，得到Component（Contig之间包含K-1个碱基的Overlap，并且有一定数目K-mer分别有一半比对在两条Contig上，这样的Contig会聚为一个Component）；
+(4) 对每个Component中的Contig构建De Bruijn图；
+(5) 对(4)中得到的De Bruijn图进行简化（合并节点，修剪边沿）；
+(6) 以真实的Read来解开De Bruijn图，获得转录本序列。
+Trinity组装原理图如下：
+》50
+图片
+图5 Trinity组装程序原理图
+》
+三级标题
+4.2.2 组装结果统计
+》
+正文
+组装共得到$All_Unigenes条Unigene，Unigene的N50为$com_Uni_N50，组装完整性较高，具体的统计信息见图6和表3：
+》
+图片
+图6 Unigene长度分布图
+》
+注释
+注：横坐标表示Unigene的不同长度区间；纵坐标表示某一长度区间内的Unigene数量。
+》55
+表格
+表3 组装结果统计表
+》
+注释
+注：Length Range：表示Unigene的不同长度区间；表格中的数字表示相应区间内Unigene的数量，括号内的百分比表示相应长度区间内Unigene所占的比例；Total Number：表示组装得到的Unigene的总数；Total Length：表示组装得到的Unigene的总长度；N50 Length：表示Unigene的N50的长度；Mean Length：表示Unigene的平均长度。
+》
+三级标题
+4.2.3 测序数据与组装结果的比对统计
+》
+正文
+将各样品的Clean Data与组装得到的Transcript或Unigene库进行序列比对，比对结果统计见表4。比对到Transcript或Unigene的Reads称为Mapped Reads，Mapped Reads将用于后续的分析。
+》
+表格
+表4 测序数据与组装结果的比对统计表
+》
+注释
+注：BMK-ID：百迈客对样品的统一编号；Clean Reads：Clean Reads数目，以双端计；Mapped Reads：Mapped Reads数目，以双端计；Mapped Ratio：Mapped Reads在Clean Reads中所占的比例。
+》
+二级标题
+4.3 转录组测序文库质量评估
+》
+正文
+合格的转录组测序文库是转录组数据分析结果可靠的必要条件，为确保测序文库的质量，从以下3个不同角度对转录组测序文库进行质量评估：
+(1) 通过检验插入片段在Unigene上的分布，评估mRNA片段化的随机性、mRNA的降解情况；
+(2) 通过绘制插入片段的长度分布图，评估插入片段长度的离散程度；
+(3) 通过绘制饱和度图，评估文库容量和比对到Unigene库的Reads（Mapped Reads）是否充足。
+》
+三级标题
+4.3.1 mRNA片段化随机性检验
+》60
+正文
+mRNA片段化后的插入片段大小选择，可以理解为从mRNA序列中独立随机地抽取子序列，如果样本量（mRNA数目）越大、打断方式和时间控制得越合适，那么目的RNA每个部分被抽取到的可能性就越接近，即mRNA片段化随机性越高，mRNA上覆盖的Reads越均匀。
+通过Mapped Reads在各Unigene上的位置分布，模拟mRNA片段化结果，检验mRNA片段化的随机程度。各样品Mapped Reads在mRNA转录本上的位置分布图如下：
+》
+图片
+图7 Mapped Reads在mRNA上的位置分布图
+》
+注释
+注：横坐标为mRNA位置，纵坐标为对应位置区间内Reads在Mapped Reads中所占百分比。由于参考的mRNA长度不同，作图时将每个mRNA按照长度划分成100个区间，进而统计每一区间内的Mapped Reads数目及所占的比例，图中反映的是所有mRNA各个区间内的Mapped Reads比例的汇总。
+》
+待编辑正文
+从上图可以看出，各样品的曲线较平滑，说明mRNA片段化随机性较高；曲线中间部分斜率很小，说明各样品不存在严重降解现象。
+》
+三级标题
+4.3.2 插入片段长度检验
+》65
+正文
+插入片段长度的离散程度能直接反映出文库制备过程中切胶或磁珠纯化的效果。测序样品$br_replicate1的插入片段长度模拟分布图如下：
+》
+图片
+图8 插入片段长度模拟分布图
+》
+注释
+注：横坐标为双端Reads在Unigene库中比对起止点之间的距离，范围为0到800bp；纵坐标为比对起止点之间不同距离的双端Reads或插入片段数量。
+》
+待编辑正文
+上图中曲线的主峰落在180bp附近，峰型较窄，说明插入片段长度的离散程度较小，插入片段大小选择无异常。
+》
+三级标题
+4.3.3 转录组测序数据饱和度检验
+》70
+正文
+充足的有效数据是信息分析准确的必要条件。转录组测序检测到的基因数目与测序数据量成正相关性，即测序数据量越大，检测到的基因数目越多。但一个物种的基因数目是有限的，而且基因转录具有时间特异性和空间特异性，所以随着测序量的增加，检测到的基因数目会趋于饱和。
+为了评估数据是否充足，需要查看随着测序数据量的增加，新检测到的基因是否越来越少或没有，即检测到的基因数目是否趋于饱和。
+使用各样品的Mapped Reads对检测到的基因数目的饱和情况进行模拟，绘制曲线图如下：
+》
+图片
+图9 转录组测序数据饱和度模拟图
+》
+注释
+注：通过将Mapped Reads等量地分成100份，逐渐增加数据查看检测到的基因数量来绘制饱和度曲线。横坐标为Reads数目（以10[6 Superscript]为单位），纵坐标为检测到的基因数量（以10[3 Superscript]为单位）。表达量FPKM不小于0.1的基因定义为表达的基因。
+》
+待编辑正文
+上图中各曲线越往右延伸，斜率越小，逐渐趋于平坦，说明各样品随着测序数据量的增加，新检测到的基因越来越少，趋于饱和，有效测序数据量充足。
+》
+二级标题
+4.4 Unigene功能注释
+》75
+正文
+使用BLAST[[2] Superscript]软件将Unigene序列与NR[[3] Superscript]、Swiss-Prot[[4] Superscript]、GO[[5] Superscript]、COG[[6] Superscript]、KOG[[7] Superscript]、KEGG[[8] Superscript]数据库比对，使用KOBAS2.0[[9] Superscript]得到Unigene在KEGG中的KEGG Orthology结果，预测完Unigene的氨基酸序列之后使用HMMER[[10] Superscript]软件与Pfam[[11] Superscript]数据库比对，获得Unigene的注释信息。
+NR数据库是NCBI中的非冗余蛋白质数据库，包含了Swiss-Prot、PIR（Protein Information Resource）、PRF（Protein Research Foundation）、PDB（Protein Data Bank）蛋白质数据库及从GenBank和RefSeq的CDS数据翻译过来的蛋白质数据信息。
+Swiss-Prot数据库是由EBI（欧洲生物信息学研究所）负责维护的数据库，包含了有相关参考文献且经过校对的蛋白质注释信息数据库，可信度很高。
+COG（Clusters of Orthologous Groups）数据库是对基因产物进行同源分类的数据库，是一个较早的识别直系同源基因的数据库，通过对多种生物的蛋白质序列大量比较而来的。
+KOG（euKaryotic Orthologous Groups）数据库针对真核生物，基于基因直系同源关系，结合进化关系将来自不同物种的同源基因分为不同的Orthologous簇，目前KOG有4852个分类。来自同一Orthologous的基因具有相同的功能，这样就可以将功能注释直接继承给同一KOG簇的其他成员。
+Pfam（Protein family）数据库通过蛋白序列的比对建立了每个家族的氨基酸序列的HMM统计模型，是最全面的蛋白结构域注释的分类系统。蛋白质由一个或多个功能区域构成，这些功能区域叫做结构域（Domain），它们具有一定序列保守性。不同的结构域赋予蛋白质不同的功能，通过识别蛋白质的结构域序列，可以预测蛋白质的功能。
+GO（Gene Ontology）数据库是一个国际标准化的基因功能分类体系，提供了一套动态更新的标准词汇表来全面描述生物体中基因和基因产物的功能属性。该数据库总共有三大类，分别是分子功能（Molecular Function）、细胞组分（Cellular Component）和生物学过程（Biological Process），各自描述了基因产物可能行使的分子功能，以及所处的细胞环境和参与的生物学过程。GO数据库中最基本的概念是节点或条目（Term），每个节点都有一个名称，比如“Cell”、“Fibroblast Growth Factor Receptor Binding”或者“Signal Transduction”，同时有一个唯一的编号，形如“GO:nnnnnnn”。
+KEGG（Kyoto Encyclopedia of Genes and Genomes）数据库是系统分析基因产物在细胞中的代谢途径以及这些基因产物功能的数据库。它整合了基因组、化学分子和生化系统等方面的数据，包括代谢通路（PATHWAY）、药物（DRUG）、疾病（DISEASE）、基因序列（GENES）及基因组（GENOME）等。利用该数据库有助于把基因及表达信息作为一个整体的网络进行研究。
+以上所有数据库的链接地址等信息详见附表。
+本项目通过选择BLAST参数E-value不大于10[-5 Superscript]和HMMER参数E-value不大于10[-10 Superscript]，最终获得$All_Anno个有注释信息的Unigene。
+基因注释的统计结果见下表：
+》
+表格
+表5 Unigene注释统计表
+》
+注释
+注：Annotated databases：表示各功能数据库；Unigene：表示注释到该数据库的Unigene数；≥300nt：表示注释到该数据库的长度大于300个碱基的Unigene数；≥1000nt：表示注释到该数据库的长度大于1000个碱基的Unigene数。
+》
+二级标题
+4.5 基因结构分析
+》
+三级标题
+4.5.1 编码区序列预测
+》80
+正文
+TransDecoder软件基于开放阅读框（Open Reading Frame，ORF）长度、对数似然函数值（Log-likelihood Score）、氨基酸序列与Pfam数据库蛋白质结构域序列的比对等信息，能够从转录本序列中识别可靠的潜在编码区序列（Coding Sequence，CDS），是Trinity和Cuffinks等软件官方推荐的CDS预测软件。
+使用TransDecoder软件进行Unigene的编码区序列及其对应氨基酸序列的预测。预测的CDS文件结果示意如下图：
+》
+图片
+图10 CDS分析结果文件示意图
+》
+注释
+注：文件为标准的FASTA格式，每个序列单元以“>”开始到下一个“>”之前结束。“>”后面紧接编码区序列编号（由Unigene编号和开放阅读框序号构成），之后是序列描述信息，包括序列类型（type）、序列长度（len）、序列在Unigene上的位置（loc）。预测的编码区序列类型有完整（complete，即同时预测到起始密码子和终止密码子）、5’端部分（5prime_partial，即仅预测到起始密码子）、3’端部分（3prime_partial，即仅预测到终止密码子）和内部区段（internal，即起始密码子和终止密码子都没有预测到）。从第二行开始直到出现“>”之前为止为编码区序列。
+》
+三级标题
+4.5.2 简单重复序列分析
+》
+正文
+MISA（MIcroSAtellite identification tool）是一款鉴定简单重复序列（Simple Sequence Repeat，SSR）的软件，其参考网址见附表。它可以通过对Unigene序列的分析，鉴定出6种类型的SSR：单碱基（Mono-nucleotide）重复SSR、双碱基（Di-nucleotide）重复SSR、三碱基（Tri-nucleotide）重复SSR、四碱基（Tetra-nucleotide）重复SSR、五碱基（Penta-nucleotide）重复SSR和六碱基（Hexa-nucleotide）重复SSR。
+利用MISA软件对筛选得到的1kb以上的Unigene做SSR分析，结果见下表：
+》85
+表格
+表6 SSR分析结果统计表
+》
+注释
+注：Total number of sequences examined：评估的序列数目；Total size of examined sequences (bp)：评估的序列总碱基数目；Total number of identified SSRs：识别的SSR总数；Number of SSR containing sequences：包含SSR的序列数目；Number of sequences containing more than 1 SSR ：包含1个以上SSR的序列数目；Number of SSRs present in compound formation：以复合物形式存在的SSR数目；Mono nucleotide：单碱基重复SSR；Di nucleotide：双碱基重复SSR；Tri-nucleotide：三碱基重复SSR；Tetra nucleotide：四碱基重复SSR；Penta nucleotide：五碱基重复SSR；Hexa nucleotide：六碱基重复SSR。
+
+》
+表格
+表7 SSR分析结果文件示意表
+》
+注释
+注：Gene_ID：Unigene编号；SSR_nr：同一Unigene上的SSR序号；SSR_type：SSR类型，包括完美单碱基重复（p1）、完美双碱基重复（p2）、完美三碱基重复（p3）、完美四碱基重复（p4）、完美五碱基重复（p5）、完美六碱基重复（p6）和混合SSR（c，即包含至少两个完美SSR，且之间距离小于100bp）；SSR：SSR序列，括号内为重复单元，括号外数字表示重复次数；Size：SSR的长度；Start：SSR在Unigene上的开始位置；End：SSR在Unigene上的结束位置。
+》
+正文
+对不同类型的SSR进行密度分布统计，结果见下图：
+》
+图片
+图11 SSR密度分布图
+》
+注释
+注：横坐标为SSR类型；纵坐标为每Mb序列中对应类型的SSR数目。
+》
+三级标题
+4.5.3 简单重复序列引物设计
+》
+正文
+对找出的SSR标记采用Primer3进行引物设计，SSR引物设计结果文件示意见下表：
+》
+表格
+表8 SSR引物设计结果文件示意表
+》
+注释
+注：每一行为一个SSR标记的引物设计结果，每个SSR标记最多设计三对引物，表中显示了第一对引物的信息。Gene_ID：基因编号；FPr1(5'-3')：第一条正向引物序列；Tm：第一条正向引物序列的退火温度，单位为°C；Size：第一条正向引物序列的长度；RPr1(5'-3')：第一条反向引物序列；Tm：第一条反向引物序列的退火温度，单位为°C；Size：第一条反向引物序列的长度；Psize：产物的长度；Start：产物在基因上的开始位置；End：产物在基因上的结束位置。
+》
+三级标题
+4.5.4 SNP分析
+》
+正文
+利用针对RNA-Seq的比对软件STAR[[12] Superscript]对每个样本的Reads与Unigene序列进行比对，并通过GATK[[13] Superscript]针对RNA-Seq的SNP识别（SNP Calling）流程，识别单核苷酸多态性（Single Nucleotide Polymorphism，SNP）位点。进而可以分析这些SNP位点是否影响了基因的表达水平或者蛋白产物的种类。识别标准如下：
+(1) 35bp范围内连续出现的单碱基错配不超过3个；
+(2) 经过序列深度标准化的SNP质量值大于2.0。
+按照以上条件筛选，最终获得各样本SNP位点信息。样品$br_replicate1部分SNP位点信息见下表：
+》
+表格
+表9 SNP分析结果文件示意表
+》90
+注释
+注：GeneID：Unigene编号；Pos：SNP位点在Unigene上的位置；Ref：Unigene上的SNP等位；Alt：测序样品中识别到的其他的SNP等位；$br_replicate1：样品$br_replicate1该SNP位点的分型；Depth：样品$br_replicate1该SNP位点的测序深度；AlleDepth：样品$br_replicate1该SNP位点的各等位测序深度。核酸编码表见附表3。
+》
+正文
+根据SNP位点的等位（Allele）数目，即测序Reads支持的不同碱基的数目，可以将SNP位点分为纯合型SNP位点（只有一个等位）和杂合型SNP位点（两个或多个等位）。不同物种杂合型SNP所占的比例存在差异。各样品SNP位点数目统计见下表，详细分析结果见FTP。
+》
+表格
+表10 SNP数量统计表
+》
+注释
+注：Samples：样品编号；HomoSNP：纯合型SNP数目；HeteSNP：杂合型SNP数目；AllSNP：纯合型和杂合型SNP总数目。
+》
+正文
+对SNP在Unigene上的分布密度进行统计，作图如下：
+》
+图片
+图12 SNP密度分布图
+》
+注释
+注：横坐标为SNP密度，即每Kb基因序列上的SNP数目；纵坐标为拥有对应密度的基因数目。
+》
+二级标题
+4.6 基因表达量分析
+》95
+三级标题
+4.6.1 Unigene表达量计算
+》
+正文
+采用BLAT[[14] Superscript]将各样品测序得到的Reads与Unigene库进行比对，根据比对结果进行表达量水平估计。利用FPKM值表示对应Unigene的表达丰度。
+FPKM[[15] Superscript]（Fragments Per Kilobase of transcript per Million mapped reads）是每百万Reads中来自比对到某一基因每千碱基长度的Reads数目，是转录组测序数据分析中常用的基因表达水平估算方法。FPKM能消除基因长度和测序量差异对计算基因表达的影响，计算得到的基因表达量可直接用于比较不同样品间的基因表达差异。FPKM计算公式如下：
+》
+公式
+公式2 FPKM计算公式
+》
+正文
+公式中，cDNA Fragments表示比对到某一转录本上的片段数目，即双端Reads数目；Mapped Fragments (Millions)表示比对到转录本上的片段总数，以10[6 Superscript]为单位；Transcript Length(kb)：转录本长度，以10[3 Superscript]个碱基为单位。
+》
+正文
+对每个基因的信息进行统计，样品$br_replicate1结果文件示意见下表：
+》100
+表格
+表11 基因表达量结果文件示意表
+》
+注释
+注：Gene_ID：Unigene的编号；Length：Unigene的长度；Depth：测序Reads在Unigene上的平均深度；Coverage：测序Reads在Unigene上的覆盖度；FPKM：FPKM方法标准化后的基因表达丰度值；TotalReads：比对到Unigene上的测序Reads数目；UniqReads：比对到Unigene唯一位置上的测序Reads数目；MultiReads：比对到多个Unigene或一个Unigene多个位置上的测序Reads数目。
+》
+三级标题
+4.6.2 样品基因表达量总体分布
+》
+正文
+利用转录组数据检测基因表达具有较高的灵敏度。通常情况下，能够测序到的蛋白质编码基因表达水平FPKM值横跨10[-2 Superscript]到10[4 Superscript]六个数量级[[16] Superscript]。
+》
+图片
+图13 各样品FPKM密度分布对比图
+》105
+注释
+注：图中不同颜色的曲线代表不同的样品，曲线上点的横坐标表示对应样品FPKM的对数值，点的纵坐标表示概率密度。
+》
+正文
+从箱线图中不仅可以查看单个样品基因表达水平分布的离散程度，还可以直观的比较不同样品的整体基因表达丰度。该项目各样品的FPKM分布箱线图如下：
+》
+图片
+图14 各样品FPKM箱线图
+》
+注释
+注：图中横坐标代表不同的样品；纵坐标表示样品表达量FPKM的对数值。该图从表达量的总体离散角度来衡量各样品表达水平。
+》
+二级标题
+4.7 差异表达分析
+》110
+正文
+基因表达具有时间和空间特异性，外界刺激和内部环境都会影响基因的表达。在不同条件（如对照与处理、野生型和突变型、不同时间点、不同组织等）下，表达水平存在显著差异的基因，称之为差异表达基因（Differentially Expressed Gene，DEG）。同样地，表达水平存在显著差异的转录本，称之为差异表达转录本（Differentially Expressed Transcript，DET）。生物信息学中，寻找差异表达转录本或差异表达基因的过程叫做差异表达分析（Differential Expression Analysis）。
+研究表明，基因的表达在不同的个体间存在生物学可变性[[17] Superscript][[18] Superscript]（Biological Variability），不同的基因之间表达的可变程度存在差异，而转录组测序技术、qPCR以及生物芯片等技术都不能消除这种可变性。为了寻找真正感兴趣的差异表达基因，需要考虑和处理因生物学可变性造成的表达差异[[19] Superscript]。目前最常用且最有效的方法是在实验设计中设立生物学重复（Biological Replicates），即在同一条件下制备多个生物学样品。重复条件限制越严格，重复样品数目越多，寻找到的差异表达基因越可靠。
+差异表达分析寻找到的基因集合叫做差异表达基因集。在分析结果中，使用“A_vs_B”的方式命名差异表达基因集，如T1_vs_T2或T1_T2_vs_T3_T4等。通常情况下，对于两个样品之间的差异表达基因集，A表示对照样品、野生型样品或前一个时间点样品；而B表示对应的处理样品、突变型样品或后一个时间点样品。相应地，对于两个条件（即两组样品）之间的差异表达基因集，A表达含有多个重复样品（Duplicates）的对照组、野生型组或前一个时间点样品组；B表示对应的处理组、突变型组、后一个时间点样品组。根据两（组）样品之间表达水平的相对高低，差异表达基因可以划分为上调基因（Up-regulated Gene）和下调基因（Down-regulated Gene）。上调基因在样品（组）B中的表达水平高于样品（组）A中的表达水平；反之为下调基因。因此，上调和下调是相对的，由所给A和B的顺序决定，若更换A和B的顺序会完全反过来，但这不会对分析结果产生实质性的影响。
+》
+三级标题
+4.7.1 重复相关性评估
+》
+正文
+对于设立生物学重复的项目，评估生物学重复的相关性对于分析转录组测序数据非常重要。首先，生物学重复的相关性可以检验生物学实验操作的可重复性；其次，生物学重复的相关性可以评估差异表达基因的可靠性。最后，生物学重复的相关性可以辅助异常样品的筛查。
+将皮尔逊相关系数r（Pearson’s Correlation Coefficient）作为生物学重复相关性的评估指标[[20] Superscript]。r[2 Superscript]越接近1，说明两个重复样品相关性越强。
+为了使分析更加准确可信，原则上，同一条件的生物学重复样品数目不得少于3个。这是为了能够筛查异常样品，并且在剔除一个异常样品后，保证每个条件至少还有2个生物学重复样品，进而直接进行后续差异表达分析，减小整个实验失败的风险，提高效率。同时，百迈客也保证对同一条件的所有生物学重复样品进行同人同批样品提取、建库，同Run同Lane测序。对异常样品进行详细分析，并根据分析结果与沟通共识决定重新进行实验，还是剔除异常样品进行后续分析。
+该项目任意一对样品的r[2 Superscript]统计如下表：
+》
+表格
+表12 生物学重复相关性统计表
+》
+正文
+对同一条件的每一对生物学重复样品的基因表达量做相关性散点图，样品$br_replicate1和$br_replicate2的相关性散点图见下图。
+》115
+图片
+图15 两样品的基因表达量散点图
+》
+注释
+注：基因表达量散点图中每个点代表一个基因，横纵坐标分别是该基因在两个样品中表达量加1（FPKM+1）的对数值。点越偏离对角线，说明对应基因在两个样品间的表达水平差异越大。另外，偏离对角线的点越多，说明两样品表达量的相关性越低，表达量差异越大；反之亦然。
+》
+待编辑正文
+由上图可知，偏离对角线的点比较少，表明两样品大部分的基因表达趋势比较接近，重复相关性高。
+》
+三级标题
+4.7.2 差异表达基因筛选
+》
+正文
+检测差异表达基因时，需要根据实际情况选取合适的差异表达分析软件。对于有生物学重复的实验，采用DESeq[[21] Superscript]进行样品组间的差异表达分析，获得两个条件之间的差异表达基因集；对于没有生物学重复的实验，则使用EBSeq[[22] Superscript]进行差异表达分析，获得两个样品之间的差异表达基因集。
+在差异表达分析过程中采用了公认有效的Benjamini-Hochberg方法对原有假设检验得到的显著性p值（p-value）进行校正，并最终采用校正后的p值，即FDR（False Discovery Rate）作为差异表达基因筛选的关键指标，以降低对大量基因的表达值进行独立的统计假设检验带来的假阳性。
+在筛选过程中，将FDR<0.01且差异倍数FC（Fold Change）≥2作为筛选标准。其中，FC表示两样品（组）间表达量的比值。
+样品$DEGcondition1和$DEGcondition2差异表达分析部分结果见下表：
+》120
+表格
+表13 差异表达分析结果示意表
+》
+注释
+注：GeneID：基因编号；FDR：错误发现率；log2FC：表达量差异倍数的对数值；regulated：上调基因（up）还是下调基因（down）；其它列为对应样品中基因的表达量FPKM值。
+》
+正文
+差异表达基因数目统计如下表：
+》
+表格
+表14 差异表达基因数目统计表
+》
+注释
+注：DEG Set：差异表达基因集名称；All DEG：差异表达基因数目；up-regulated：上调基因的数目；down-regulated：下调基因的数目。
+》 125
+正文
+火山图（Volcano Plot）可以直观地展现所有基因的FDR与Fold Change之间的关系，以便快速查看基因在两组样品间的表达水平差异程度及其统计学显著性。
+样品$DEGcondition1和$DEGcondition2间差异表达火山图见下图：
+》
+图片
+图16 差异表达基因火山图
+》
+注释
+注：差异表达火山图中的每一个点表示一个基因，横坐标表示某一个基因在两样品中表达量差异倍数的对数值，其绝对值越大，说明表达量在两样品间的表达量倍数差异越大；纵坐标表示错误发现率的负对数值，其值越大，表明差异表达越显著，筛选得到的差异表达基因越可靠。图中绿色的点代表有显著性表达差异的基因，红色的点代表无显著性表达差异的基因。
+》
+正文
+通过MA图可以直观地查看两组样品中基因的表达丰度和差异倍数的整体分布。基因的差异表达MA图见下图：
+》
+图片
+图17 差异表达基因MA图
+》 130
+注释
+注：差异表达基因MA图中每一个点代表一个基因。横坐标为A值：log2(FPKM)，即两样品中表达量均值的对数值；纵坐标为M值：log2(FC)，即两样品间基因表达量差异倍数的对数值，用于衡量表达量差异的大小。图中绿色的点代表显著差异表达的基因，红色的点代表表达差异不显著的基因。
+》
+三级标题
+4.7.3 差异表达基因聚类分析
+》
+正文
+对筛选出的差异表达基因做层次聚类分析，将具有相同或相似表达行为的基因进行聚类，用于展示不同实验条件下基因集的差异表达模式。
+样品$DEGcondition1和$DEGcondition2组间差异表达基因聚类结果如下图：
+》
+图片
+图18 差异表达基因表达模式聚类图
+》
+注释
+注：图中不同的列代表不同的样品，不同的行代表不同的基因。颜色代表了基因在样品中的表达量FPKM以2为底的对数值。
+》 135
+二级标题
+4.8 差异表达基因功能注释和富集分析
+》
+正文
+基于基因在不同样品中的表达量，对识别到的差异表达基因进行功能注释，各差异表达基因集注释到的基因数量统计如下：
+》
+表格
+表15 注释的差异表达基因数量统计表
+》
+注释
+注：DEG Set：差异表达基因集名称；Annotated：注释到的差异表达基因数目；第三列到最后一列表示各功能数据库注释到的差异表达基因数目。
+》
+三级标题
+4.8.1 差异表达基因GO功能富集
+》
+正文
+GO数据库是一个结构化的标准生物学注释系统，建立了基因及其产物功能的标准词汇体系，其信息适用于各物种。该数据库结构分为多个层级，层级越低，节点所代表的功能越具体。
+样品$DEGcondition1和$DEGcondition2组间差异表达基因以及所有基因在GO二级节点的注释结果见下图：
+》
+图片
+图19 差异表达基因GO二级节点注释统计图
+》
+注释
+注：横坐标为GO三大分类下的二级节点。纵坐标表示注释到该节点的基因数目及占所有基因数目的百分比，其中红色柱体表示所有基因的注释情况，蓝色柱体表示差异表达基因的注释情况。
+》
+正文
+从上图可以看出差异表达基因和所有基因在GO各二级功能中的注释情况，其中红色柱体与蓝色柱体具有明显差异的节点可能与差异有关。
+然后，利用topGO软件对注释到GO数据库的样品组间差异表达基因进行富集分析，并对显著富集的节点在GO体系中的层级关系以有向无环图的形式进行直观展示。在有向无环图中，箭头代表包含关系，即该节点的所有基因同样注释到其上级节点中。
+样品$DEGcondition1和$DEGcondition2的差异表达基因利用topGO进行功能富集的分子功能的有向无环图如下图：
+》
+图片
+图20 差异表达基因topGO富集有向无环图（分子功能）
+》
+注释
+注：对每个GO节点进行富集，最显著的10个节点在图中用方框表示，图中还包含其各层对应关系。每个方框（或椭圆）内给出了该GO节点的内容描述和富集显著性值。不同颜色代表不同的富集显著性，颜色越深，显著性越高。
+》
+正文
+样品$DEGcondition1和$DEGcondition2的差异表达基因利用topGO进行功能富集的结果示意如下表：
+》
+表格
+表16 差异表达基因topGO富集结果示意表（分子功能）
+》
+注释
+注：GO.ID：GO 节点的编号；Term：GO节点名称；Annotated：所有基因注释到该功能的基因数；Significant：DEG注释到该功能的基因数；Expected：注释到该功能DEG数目的期望值；KS：富集节点的显著性统计，KS值越小，表明富集越显著。
+》
+三级标题
+4.8.2 差异表达基因COG分类
+》
+正文
+COG（Cluster of Orthologous Groups of proteins）数据库是基于细菌、藻类、真核生物的系统进化关系构建得到的，利用COG数据库可以对基因产物进行直系同源分类。
+样品$DEGcondition1和$DEGcondition2组间差异表达基因COG分类统计结果见下图：
+》
+图片
+图21 差异表达基因COG注释分类统计图
+》
+注释
+注：横坐标为COG各分类内容，纵坐标为基因数目。在不同的功能类中，基因所占多少反映对应时期和环境下代谢或者生理偏向等内容，可以结合研究对象在各个功能类的分布做出科学的解释。
+》
+三级标题
+4.8.3 差异表达基因KEGG注释
+》
+正文
+在生物体内，不同的基因产物相互协调来行使生物学功能，对差异表达基因的Pathway注释分析有助于进一步解读基因的功能。KEGG（Kyoto Encyclopedia of Genes and Genomes）数据库是关于Pathway的主要公共数据库。
+差异表达基因的通路注释结果见下图：
+》
+图片
+图22 差异表达基因的KEGG通路注释图示意图
+》
+注释
+注：相对于对照组来说，红色框标记的酶与上调基因有关，绿色框标记的酶与下调基因有关。蓝色框标记的酶与上调和下调基因均有关，框内的数字代表酶的编号（EC number），而整个通路由多种酶催化的复杂生化反应构成，此通路图中与差异表达基因相关的酶均用不同的颜色标出，研究人员可以根据自己的研究对象间的差异，重点研究某些代谢通路相关基因的差异表达情况，通过通路解释表型差异的根源。
+》
+正文
+对差异表达基因KEGG的注释结果按照KEGG中通路类型进行分类，分类图如下图所示：
+》
+图片
+图23 差异表达基因KEGG分类图
+》
+注释
+注：纵坐标为KEGG代谢通路的名称，横坐标为注释到该通路下的基因个数及其个数占被注释上的基因总数的比例。
+》
+三级标题
+4.8.4 差异表达基因KEGG通路富集分析
+》
+正文
+分析差异表达基因在某一通路上是否过出现（over-presentation）即为差异表达基因的Pathway富集分析。利用富集因子（Enrichment Factor）分析Pathway的富集程度，并利用Fisher精确检验方法计算富集显著性。其中富集因子的计算公式如下：
+》
+公式
+公式3 富集因子计算公式
+》
+正文
+差异表达基因的KEGG通路富集分析结果见下图：
+》
+图片
+图24 差异表达基因KEGG通路富集散点图
+》
+注释
+注：图中每一个图形表示一个KEGG通路，通路名称见右侧图例。横坐标为富集因子（Enrichment Factor），表示所有基因中注释到某通路的基因比例与差异基因中注释到该通路的基因比例的比值。富集因子越小，表示差异表达基因在该通路中的富集水平越显著。纵坐标为 log10(Q value)，其中Q value为多重假设检验校正之后的P value。因此，纵坐标越大，表示差异表达基因在该通路中的富集显著性越可靠。
+》
+正文
+在该图中越靠近右上角的图形代表的通路，参考价值越大；反之亦然。挑选了富集显著性最可靠（即Q值最小）的前20个通路进行结果展示。
+差异表达基因KEGG的富集分析部分结果见下表：
+》
+表格
+表17 差异表达基因的KEGG富集部分结果
+》
+注释
+注：Pathway：KEGG通路名称；KO：KEGG通路编号；Enrichment_Factor：富集因子；Q_value：富集的显著性统计，值越小，富集程度越高。
+》
+一级标题
+5 数据介绍和说明
+》
+二级标题
+5.1 结果文件查看说明
+》
+正文
+上传目录中有说明文档readme.txt，详细介绍了每个文件所代表的内容。上传的结果数据文件多以文本格式为主（fa文件、txt文件、detail文件、xls文件等）。在Windows系统下查看文件，推荐使用Editplus或UltraEdit作为文本浏览程序，否则会因文件过大造成死机。在Unix或Linux系统下可以浏览较大的文本文件，用less等操作命令可以顺利地查看。
+提供的网页版报告里面，每个重要的分析结果文件会有相应的链接，可以根据网页版报告的链接来获取文件。
+》
+二级标题
+5.2 SVG文件格式的查看
+》
+正文
+报告文件含有SVG格式的图片文件，SVG是矢量化的图片文件，可以随意放大而不失真。要查看SVG格式的文件，请先安装SVG插件。
+》
+参考文献标题
+【参 考 文 献】
+》
+参考文献
+[1] Grabherr MG, Haas BJ, Yassour M,, et al. Full length transcriptome assembly from RNA Seq data without a reference genome. [Nature Biotechnology Italic]. 2011.(29): 644-652 
+[2] Altschul SF, Madden TL, Sch?ffer AA, et al. Gapped BLAST and PSI BLAST: A New Generation of Protein Database Search Programs. [Nucleic Acids Research Italic]. 1997. 25(17): 3389-3402.
+[3] Deng YY, Li JQ, Wu SF, et al. Integrated nr Database in Protein Annotation System and Its Localization. [Computer Engineering Italic]. 2006. 32(5):71-74
+[4] Apweiler R, Bairoch A, Wu CH, et al. UniProt: the Universal Protein knowledgebase. [Nucleic Acids Research Italic]. 2004. 32(Database issue):D115 -9.
+[5] Ashburner M, Ball C A, Blake J A, et al. Gene ontology: tool for the unification of biology. [Nature genetics Italic]. 2000. 25(1): 25-29.
+[6] Tatusov R L, Galperin M Y, Natale D A. The COG database: a tool for genome scale analysis of protein functions and evolution. [Nucleic Acids Research Italic]. 2000. 28(1):33-36. 
+[7] Koonin EV, Fedorova ND, Jackson JD, et al. A comprehensive evolutionary classification of proteins encoded in complete eukaryotic genomes. [Genome Biology Italic], 2004, 5(2): R7.
+[8] Kanehisa M, Goto S, Kawashima S, et al. The KEGG resource for deciphering the genome. [Nucleic Acids Research Italic]. 2004. 32(Database issue):D277-D280.
+[9] Xie, C., Mao, X., Huang, J., Ding, Y., Wu, J., Dong, S., Kong, L., Gao, G., Li, C. and Wei, L. (2011) KOBAS 2.0: a web server for annotation and identification of enriched pathways and diseases. Nucleic Acids Res, 39, W316-322.
+[10] Finn RD, Bateman A, Clements J, et al. Pfam: the protein families database. [Nucleic Acids Research Italic], 2013: gkt1223.
+[11] Eddy S.R. Profile hidden Markov models (1998) [Bioinformatics Italic], 14 (9), pp. 755-763.
+[12] Dobin A, Davis C A, Schlesinger F, et al. STAR: ultrafast universal RNA-seq aligner[J]. [Bioinformatics Italic], 2013, 29(1): 15-21.
+[13] McKenna A, Hanna M, Banks E, et al. The Genome Analysis Toolkit: a MapReduce framework for analyzing next-generation DNA sequencing data[J]. [Genome Research Italic]. 2010, 20(9): 1297-1303.
+[14] Kent WJ. BLAT - the BLAST-like alignment tool. [Genome Research Italic]. 2002 Apr;12(4):656-64.
+[15] Trapnell C, Williams B A, Pertea G, Mortazavi A, et al. Transcript assembly and quantification by RNA Seq reveals unannotated transcripts and isoform switching during cell differentiation. [Nature Biotechnology Italic] 2010, 28(5):511 515.
+[16] Djebali, Sarah and Mortazavi, et al. Landscape of transcription in human cells. [Nature Italic] 2012, 489 (7414). pp. 101-108. ISSN 0028-0836.
+[17] Elowitz MB, Levine AJ, Siggia ED, Swain PS. Stochastic gene expression in a single cell. [Science Italic] 2002; 297:1183-1186.
+[18] Kasper D. Hansen, Zhijin Wu, et al. Sequencing technology does not eliminate biological variability. [Nature Biotechnology Italic] 2011, pp. 572-573.
+[19] Robasky K, Lewis NE, Church, GM. The role of replicates for error mitigation in next-generation sequencing. [Nature Reviews Genetics Italic] 2013. 1-7. 
+[20] Schulze S K, Kanwar R, G?lzenleuchter M, et al. SERE: Single-parameter quality control and sample comparison for RNA-Seq. [BMC genomics Italic], 2012, 13(1): 524.
+[21] Anders S, Huber W. Differential expression analysis for sequence count data. [Genome Biology Italic]. 2010. 11:R106.
+[22] Leng N, Dawson JA, Thomson JA, et al. EBSeq: An empirical Bayes hierarchical model for inference in RNA-seq experiments. [Bioinformatics Italic]. 2013. 29(8):1035-43.
+》
+附录标题
+附 录：
+》
+附表
+附表1 软件列表
+》
+注释
+注：正文中未提及软件使用的生物信息分析均由BMK自主研发的软件实现，不在表中列出。
+》
+附表
+附表2 数据库列表
+》
+附表
+附表3 核酸编码表

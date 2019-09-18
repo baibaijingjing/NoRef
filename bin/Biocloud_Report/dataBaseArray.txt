@@ -1,0 +1,149 @@
+	
+#细菌	
+Bacteria	nr_BCT
+Bacteria	nt_BCT
+Bacteria	Bacteria.fa
+Bacteria	myva
+Bacteria	kyva
+Bacteria	Pfam-A.hmm
+Bacteria	uniprot_sprot_bacteria.fasta
+Bacteria	uniprot_trembl_bacteria.fasta
+Bacteria	genes.pep
+
+	
+	
+#古生菌	
+Archaea	nr
+Archaea	nt
+Archaea	Archaea.fa
+Archaea	myva
+Archaea	kyva
+Archaea	Pfam-A.hmm
+Archaea	uniprot_sprot_archaea.fasta
+Archaea	uniprot_trembl_archaea.fasta
+Archaea	genes.pep
+	
+	
+#植物	
+Plants	nr_PLN
+Plants	nt_PLN
+Plants	Plants.fa
+Plants	myva
+Plants	kyva
+Plants	Pfam-A.hmm
+Plants	uniprot_sprot_plants.fasta
+Plants	uniprot_trembl_plants.fasta
+Plants	genes.pep
+	
+	
+#无脊椎	
+Invertebrates	nr_INV
+Invertebrates	nt_INV
+Invertebrates	Animals.fa
+Invertebrates	myva
+Invertebrates	kyva
+Invertebrates	Pfam-A.hmm
+Invertebrates	uniprot_sprot_invertebrates.fasta 
+Invertebrates	uniprot_trembl_invertebrates.fasta
+Invertebrates	genes.pep
+	
+	
+#有脊椎	
+Vertebrates	nr_VRT
+Vertebrates	nt_VRT
+Vertebrates	Animals.fa
+Vertebrates	myva
+Vertebrates	kyva
+Vertebrates	Pfam-A.hmm
+Vertebrates	uniprot_sprot_vertebrates.fasta
+Vertebrates	uniprot_trembl_vertebrates.fasta
+Vertebrates	genes.pep
+	
+	
+#灵长类	
+Primates	nr_PRI
+Primates	nt_PRI
+Primates	Animals.fa
+Primates	myva
+Primates	kyva
+Primates	Pfam-A.hmm
+Primates	uniprot_sprot_mammals.fasta
+Primates	uniprot_trembl_mammals.fasta
+Primates	genes.pep
+	
+	
+#人类	
+Human	nr_PRI
+Human	nt_PRI
+Human	Animals.fa
+Human	myva
+Human	kyva
+Human	Pfam-A.hmm
+Human	uniprot_sprot_human.fasta
+Human	uniprot_trembl_human.fasta
+Human	genes.pep
+
+	
+	
+#啮齿动物	
+Rodents	nr_ROD
+Rodents	nt_ROD
+Rodents	Animals.fa
+Rodents	myva
+Rodents	kyva
+Rodents	Pfam-A.hmm
+Rodents	uniprot_sprot_rodents.fasta
+Rodents	uniprot_trembl_rodents.fasta
+Rodents	genes.pep
+	
+	
+	
+#病毒	
+Viruses	nr_VRL
+Viruses	nt_VRL
+Viruses	genes.pep
+Viruses	myva
+Viruses	kyva
+Viruses	Pfam-A.hmm
+Viruses	uniprot_sprot_viruses.fasta
+Viruses	uniprot_trembl_viruses.fasta
+	
+	
+	
+#哺乳动物	
+Mammals	nr_MAM
+Mammals	nt_MAM
+Mammals	Animals.fa
+Mammals	myva
+Mammals	kyva
+Mammals	Pfam-A.hmm
+Mammals	uniprot_sprot_mammals.fasta
+Mammals	uniprot_trembl_mammals.fasta
+Mammals	genes.pep
+	
+	
+	
+	
+#真菌	
+Fungi	nr
+Fungi	nt
+Fungi	Fungi.fa
+Fungi	myva
+Fungi	kyva
+Fungi	Pfam-A.hmm
+Fungi	uniprot_sprot_fungi.fasta
+Fungi	uniprot_trembl_fungi.fasta
+Fungi	genes.pep
+	
+	
+	
+#全部	
+All	nr
+All	nt
+All	genes.pep
+All	myva
+All	kyva
+All	Pfam-A.hmm
+All	uniprot_sprot.fasta
+All	uniprot_sprot.fasta
+	
